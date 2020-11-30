@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ReceitasDrinks"
+  "defaultProject": "ReceitasDrinks",
+  "cli": {
+    "analytics": "8a60e15d-7ac2-4dc5-a10d-ea68bf73a2a5"
+  }
 }
