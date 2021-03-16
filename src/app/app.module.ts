@@ -3,22 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaDrinksComponent } from './lista-drinks/lista-drinks.component';
-import { InsereDrinksComponent } from './insere-drinks/insere-drinks.component';
-import { DeletaDrinksComponent } from './deleta-drinks/deleta-drinks.component';
-import { AtualizaDrinksComponent } from './atualiza-drinks/atualiza-drinks.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AllDrinksHomePageComponent } from './components/all-drinks-home-page/all-drinks-home-page.component';
+import { DeleteDrinkComponent } from './components/delete-drink/delete-drink.component';
+import { SaveDrinkComponent } from './components/save-drink/save-drink.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaDrinksComponent,
-    InsereDrinksComponent,
-    DeletaDrinksComponent,
-    AtualizaDrinksComponent
+    AllDrinksHomePageComponent,
+    DeleteDrinkComponent,
+    SaveDrinkComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

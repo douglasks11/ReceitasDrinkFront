@@ -1,0 +1,23 @@
+<div class="row">
+  <div *ngFor="let getAllDrink of getAllDrinks" class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Drink: {{getAllDrink.nome}}</h3>
+        <p>Identificação: {{getAllDrink.id}}</p>
+
+        <ul>
+
+        <div *ngFor="let row of getAllDrink.ingredientes">
+          <li>
+            <p>Ingrediente: {{row.ingrediente}}<br>
+            Quantidade: {{row.quantidade +" "+ row.dosagem}}</p>
+            </li>
+        </div>
+    </ul>
+        <p>Modo de preparo: <br>
+          {{getAllDrink.modoPreparo}}</p>
+      </div>
+    </div>
+  </div>
+</div>
