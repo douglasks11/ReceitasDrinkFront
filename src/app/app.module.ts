@@ -9,6 +9,8 @@ import { AllDrinksHomePageComponent } from './components/all-drinks-home-page/al
 import { DeleteDrinkComponent } from './components/delete-drink/delete-drink.component';
 import { SaveDrinkComponent } from './components/save-drink/save-drink.component';
 import { CommonModule } from '@angular/common';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    BrowserModule,
+    SimpleNotificationsModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
