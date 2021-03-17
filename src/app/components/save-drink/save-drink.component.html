@@ -1,6 +1,6 @@
 <div class="row">
   <h1>Cadastrar um novo Drink</h1>
-  <form [formGroup]="SaveNewDrinkForm" class="row g-3" (ngSubmit)="onSubmit()">
+  <form [formGroup]="SaveNewDrinkForm" class="row g-3" (ngSubmit)="OnSubmitDrink()">
     <div class="col-md-12">
       <label for="nome" class="form-label">Nome do Drink</label>
       <input type="text" class="form-control" formControlName="nome" id="nome">
@@ -16,10 +16,10 @@
 
     <h3>Lista de Ingredientes</h3>
     <div class="row">
-      <form [formGroup]="SaveNewIngredienteForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="SaveNewIngredienteForm" (ngSubmit)="onSubmitIngredientes()">
         <label>Adicionar itens</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" formControlName="ingredientes" aria-describedby="button-addon2">
+          <input type="text" class="form-control" formControlName="ingrediente" id="ingrediente" aria-describedby="button-addon2">
           <input type="number" class="form-control" formControlName="quantidade" id="quantidade" placeholder="Quantidade">
           <select class="form-select" formControlName="dosagem" id="dosagem">
             <option selected>Tipo Dosagem</option>
@@ -43,7 +43,7 @@
             </thead>
             <tbody *ngFor="let data of dataSource | async">
               <tr class="table-light">
-                <th scope="row"> {{ data.ingredientes }} </th>
+                <th scope="row"> {{ data.ingrediente }} </th>
                 <td>{{ data.quantidade }}</td>
                 <td>{{ data.dosagem }}</td>
               </tr>
@@ -55,7 +55,7 @@
     <h3>Modo de Preparo</h3>
     <div class="input-group">
       <span class="input-group-text">Como faz</span>
-      <textarea class="form-control" aria-label="With textarea"></textarea>
+      <textarea class="form-control" formControlName="modopreparo" aria-label="With textarea"></textarea>
     </div>
     <br>
     <div class="col-12">
