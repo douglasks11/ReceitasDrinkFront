@@ -1,13 +1,15 @@
-<nav class="navbar navbar-inverse">
-    <a href="#" class="navbar-brand">Receitas de Drinks</a>
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
-      <li role="presentation"><a routerLink="listarDrink">Lista de Drinks</a></li>
-      <li role="presentation"><a routerLink="deletarDrink">Delete Drink</a></li>
-      <li role="presentation"><a routerLink="salvarDrink">Salver Drink</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="">Receitas Drinks</a>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" routerLink="listarDrink">Lista de Drinks</a>
+        <a class="nav-link" routerLink="deletarDrink">Delete Drink</a>
+        <a class="nav-link" routerLink="salvarDrink">Salver Drink</a>
+      </div>
+    </div>
+  </div>
 </nav>
-
 <div class="container mt-5">
   <router-outlet></router-outlet>
 </div>

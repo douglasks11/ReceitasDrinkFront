@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AllDrinksHomePageComponent } from './components/all-drinks-home-page/all-drinks-home-page.component';
 import { DeleteDrinkComponent } from './components/delete-drink/delete-drink.component';
 import { SaveDrinkComponent } from './components/save-drink/save-drink.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SaveDrinkComponent } from './components/save-drink/save-drink.component
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

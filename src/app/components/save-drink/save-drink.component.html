@@ -1,1 +1,67 @@
-<p>save-drink works!</p>
+<div class="row">
+  <h1>Cadastrar um novo Drink</h1>
+  <form [formGroup]="SaveNewDrinkForm" class="row g-3" (ngSubmit)="onSubmit()">
+    <div class="col-md-12">
+      <label for="nome" class="form-label">Nome do Drink</label>
+      <input type="text" class="form-control" formControlName="nome" id="nome">
+    </div>
+
+    <h3>Selecione fotos do Drink</h3>
+    <div class="col-md-12">
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02">Carregar</label>
+      </div>
+    </div>
+
+    <h3>Lista de Ingredientes</h3>
+    <div class="row">
+      <form [formGroup]="SaveNewIngredienteForm" (ngSubmit)="onSubmit()">
+        <label>Adicionar itens</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="ingredientes" aria-describedby="button-addon2">
+          <input type="number" class="form-control" formControlName="quantidade" id="quantidade" placeholder="Quantidade">
+          <select class="form-select" formControlName="dosagem" id="dosagem">
+            <option selected>Tipo Dosagem</option>
+            <option value="ML">ML</option>
+            <option value="UNIDADE">UNIDADE</option>
+            <option value="DOSE">DOSE</option>
+            <option value="LITROS">LITROS</option>
+          </select>
+          <button class="btn btn-outline-danger" type="button">Remover Item</button>
+          <button class="btn btn-outline-success" type="submit" id="button-addon2">Adicione outro</button>
+        </div>
+
+        <div class="row">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Ingrediente</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Dosagem</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let data of dataSource | async">
+              <tr class="table-light">
+                <th scope="row"> {{ data.ingredientes }} </th>
+                <td>{{ data.quantidade }}</td>
+                <td>{{ data.dosagem }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+    <h3>Modo de Preparo</h3>
+    <div class="input-group">
+      <span class="input-group-text">Como faz</span>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+    <br>
+    <div class="col-12">
+      <button type="submit" class="btn btn-outline-success">Cadastrar Drink</button>
+    </div>
+  </form>
+</div>
+<br>
+<br>

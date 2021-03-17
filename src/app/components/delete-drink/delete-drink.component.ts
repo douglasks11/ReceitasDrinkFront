@@ -14,7 +14,7 @@ export class DeleteDrinkComponent implements OnInit {
   showMessageOk: boolean = false;
 
 
-  constructor(private drinkService: DrinksService, private formBuilder: FormBuilder,) { }
+  constructor(private drinkService: DrinksService, private formBuilder: FormBuilder) { }
 
   checkoutForm = this.formBuilder.group({
     id: ''
