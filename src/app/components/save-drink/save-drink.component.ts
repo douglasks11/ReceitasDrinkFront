@@ -39,7 +39,7 @@ export class SaveDrinkComponent implements OnInit {
 
     this.SaveNewIngredienteForm.reset();
   }
-  OnSubmitDrink(){
+  OnSubmitDrink() {
 
     this.newDrinkToSave = this.SaveNewDrinkForm.value;
     this.newDrinkToSave.ingredientes = this.dataSource.value;
@@ -48,7 +48,7 @@ export class SaveDrinkComponent implements OnInit {
     console.log(this.newDrinkToSave);
   }
 
-  doRequest(request : any){
+  doRequest(request: any) {
 
     this.drinksService.save(request).subscribe(
       resp => {
@@ -61,10 +61,9 @@ export class SaveDrinkComponent implements OnInit {
 
   }
 
-  clearAllForms(){
+  clearAllForms() {
     this.SaveNewDrinkForm.reset();
     this.SaveNewIngredienteForm.reset();
     this.dataSource.next(null);
-
   }
 }
