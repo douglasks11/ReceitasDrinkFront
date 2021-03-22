@@ -1,19 +1,19 @@
 <div class="row">
-    <div *ngFor="let getAllDrink of getAllDrinks" class="card col col-xs-1 col-md-2 col-lg-3">
-      <img src="assets/imgs/001.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h3>Drink: {{getAllDrink.nome}}</h3>
-        <p>Identificação: {{getAllDrink.id}}</p>
-        <ul>
-          <div *ngFor="let row of getAllDrink.ingredientes">
-            <li>
-              <p>Ingrediente: {{row.ingrediente}}<br>
-                Quantidade: {{row.quantidade +" "+ row.dosagem}}</p>
-            </li>
-          </div>
-        </ul>
-        <p>Modo de preparo: <br>
-          {{getAllDrink.modoPreparo}}</p>
-      </div>
+  <div *ngFor="let getAllDrink of getAllDrinks" class="card col col-xs-1 col-md-2 col-lg-3">
+    <img src="assets/imgs/001.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3>Drink: {{getAllDrink.nome}}</h3>
+      <p>Identificação: {{getAllDrink.id}}</p>
+      <ul>
+        <div *ngFor="let row of getAllDrink.ingredientes">
+          <li>
+            <p>Ingrediente: {{row.ingrediente}}<br>
+              Quantidade: {{row.quantidade +" "+ row.dosagem}}</p>
+          </li>
+        </div>
+      </ul>
+      <p>Modo de preparo: <br>
+        {{getAllDrink.modoPreparo}}</p>
     </div>
   </div>
+</div>
