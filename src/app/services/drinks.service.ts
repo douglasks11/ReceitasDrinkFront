@@ -1,16 +1,18 @@
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from "rxjs/operators";
 import { Injectable } from '@angular/core';
 import { ErrorHandler } from '../classes/error-handler';
 
-const baseURL= "http://localhost:8080/api/drinks";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DrinksService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+   environment;
+  }
 
   save(input : any){
     let httpOptions = {
@@ -19,7 +21,7 @@ export class DrinksService {
       })
     };
 
-    return this.httpClient.post<any>(baseURL, input, httpOptions).pipe(
+    return this.httpClient.post<any>(environment.drinkApiUrl, input, httpOptions).pipe(
       map((response : any) => {
         return response;
       }),
@@ -34,9 +36,9 @@ export class DrinksService {
       })
     };
 
-    return this.httpClient.get<any>(baseURL, httpOptions).pipe(
+    return this.httpClient.get<any>(environment.drinkApiUrl, httpOptions).pipe(
       map((response : any) => {
-        return response;
+        return response.content;
       }),
       catchError(ErrorHandler.handlerError)
     )
@@ -49,8 +51,8 @@ export class DrinksService {
         'Access-Control-Allow-Origin': '*'
       })
     };
-    console.log(baseURL + id);
-    return this.httpClient.delete<any>(baseURL +"/"+ id, httpOptions).pipe(
+    console.log(environment.drinkApiUrl + id);
+    return this.httpClient.delete<any>(environment.drinkApiUrl +"/"+ id, httpOptions).pipe(
       map((response : any) => {
         return response;
       }),
