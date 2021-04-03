@@ -11,13 +11,15 @@ import { SaveDrinkComponent } from './components/save-drink/save-drink.component
 import { CommonModule } from '@angular/common';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailDrinkComponent } from './components/detail-drink/detail-drink.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllDrinksHomePageComponent,
     DeleteDrinkComponent,
-    SaveDrinkComponent
+    SaveDrinkComponent,
+    DetailDrinkComponent
   ],
   imports: [
     BrowserModule,
