@@ -1,5 +1,7 @@
+import { BehaviorSubject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { DrinksService } from 'src/app/services/drinks.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-drinks-home-page',
@@ -8,21 +10,30 @@ import { DrinksService } from 'src/app/services/drinks.service';
 })
 export class AllDrinksHomePageComponent implements OnInit {
 
-  getAllDrinks: any[] = [];
-
-  constructor(private drinkService: DrinksService) { }
+  constructor(private drinkService: DrinksService, private router: Router) { }
 
   ngOnInit(): void {
-
     this.getallDrinks();
+    console.log("aa");
   }
+
+  dataSource: BehaviorSubject<any> = new BehaviorSubject([]);
 
   getallDrinks() {
     this.drinkService.getAllDrinks().subscribe(
       e => {
-        this.getAllDrinks = e;
-        console.log(this.getAllDrinks)
-    })
+        this.dataSource.next(e);
+      })
 
-}
+  }
+   giveLike(like: any){
+
+    this.drinkService.giveLike(like).subscribe(
+      () => {
+        this.getallDrinks();
+      })
+   }
+   onSelected(id: any){
+    this.router.navigate(['/detailDrink', id]);
+   }
 }

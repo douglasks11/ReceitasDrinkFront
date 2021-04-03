@@ -16,9 +16,10 @@ export class SaveDrinkComponent implements OnInit {
     private _sanitizer: DomSanitizer) { }
   SaveNewDrinkForm!: FormGroup;
   SaveNewIngredienteForm!: FormGroup;
+  ImagensForm!: FormGroup;
   fileSelected?: Blob;
   imageUrl?: string = "assets/imgs/Drink.png";
-  base64: string = "Base64";
+  data: string = "Base64";
 
   ngOnInit(): void {
 
@@ -26,7 +27,7 @@ export class SaveDrinkComponent implements OnInit {
       nome: ['', Validators.required],
       ingredientes: ['', Validators.required],
       modoPreparo: ['', Validators.required],
-      imagebase64: ''
+      imagens: ['', Validators.required]
     }, { updateOn: 'submit' })
 
     this.SaveNewIngredienteForm = this.formBuilder.group({
@@ -34,8 +35,13 @@ export class SaveDrinkComponent implements OnInit {
       quantidade: ['', Validators.required],
       dosagem: ['', Validators.required],
     }, { updateOn: 'submit' })
+
+    this.ImagensForm = this.formBuilder.group({
+      data:[this.data, Validators.required]
+    })
   }
   prodt: any[] = [];
+  imagesArray: any[] = [];
   newDrinkToSave: any;
   dataSource: BehaviorSubject<any> = new BehaviorSubject([]);
 
@@ -43,20 +49,20 @@ export class SaveDrinkComponent implements OnInit {
 
     this.prodt.push(this.SaveNewIngredienteForm.value);
     this.dataSource.next(this.prodt);
-
     this.SaveNewIngredienteForm.reset();
   }
   OnSubmitDrink() {
 
     this.newDrinkToSave = this.SaveNewDrinkForm.value;
     this.newDrinkToSave.ingredientes = this.dataSource.value;
-    this.newDrinkToSave.imagebase64 = this.base64;
+    this.newDrinkToSave.imagens = this.ImagensForm.value;
+    this.newDrinkToSave.imagens = this.imagesArray;
     this.doRequest(this.newDrinkToSave);
 
   }
 
   doRequest(request: any) {
-    if (request.nome == null || request.ingredientes.length == 0 || request.modoPreparo == null || this.base64 == null) {
+    if (request.nome == null || request.ingredientes.length == 0 || request.modoPreparo == null || this.data == null) {
       this.onError("Por favor revise o formario");
     } else {
       this.drinksService.save(request).subscribe(
@@ -104,7 +110,8 @@ export class SaveDrinkComponent implements OnInit {
     let reader = new FileReader();
     reader.readAsDataURL(this.fileSelected as Blob);
     reader.onloadend = () => {
-      this.base64 = reader.result as string;
+      this.data = reader.result as string;
+      this.imagesArray.push(this.data);
     }
   }
 }
