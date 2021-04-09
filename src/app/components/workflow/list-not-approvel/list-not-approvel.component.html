@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="row text-center">
+    <div *ngFor="let getAllDrink of dataSource | async" class="card col col-xs-1 col-md-2 col-lg-3">
+      <div *ngFor="let rowImage of getAllDrink.imagens">
+        <img src={{rowImage.data}} class="figure-img img-fluid rounded" alt="...">
+      </div>
+      <div class="card-body">
+        <h3>{{getAllDrink.nome}}</h3>
+        <br>
+        <div class="row">
+          <h5 class="justify-content-center align-items-center">LIKES: {{getAllDrink.likes}}</h5>
+          <div class="row">
+            <button type="button" class="btn btn-outline-success" (click)="ApprovalDrink(getAllDrink.id)">Aprovar</button>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-outline-danger" (click)="RejectDrink(getAllDrink.id)">Rejeitar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

@@ -1,3 +1,4 @@
+import { ApprovalWorkFlowComponent } from './components/workflow/approval-work-flow/approval-work-flow.component';
 import { DetailDrinkComponent } from './components/detail-drink/detail-drink.component';
 import { SaveDrinkComponent } from './components/save-drink/save-drink.component';
 import { DeleteDrinkComponent } from './components/delete-drink/delete-drink.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
 { path: 'listarDrink', component: AllDrinksHomePageComponent},
 { path: 'deletarDrink', component: DeleteDrinkComponent},
 { path: 'salvarDrink', component: SaveDrinkComponent},
-{ path: 'detailDrink/:id', component: DetailDrinkComponent}
+{ path: 'detailDrink/:id', component: DetailDrinkComponent},
+{ path: 'workflow', component: ApprovalWorkFlowComponent}
 ];
 
 

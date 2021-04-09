@@ -55,7 +55,7 @@ export class SaveDrinkComponent implements OnInit {
 
     this.newDrinkToSave = this.SaveNewDrinkForm.value;
     this.newDrinkToSave.ingredientes = this.dataSource.value;
-    this.newDrinkToSave.imagens = this.ImagensForm.value;
+    this.newDrinkToSave.imagens = this.ImagensForm.valueChanges;
     this.newDrinkToSave.imagens = this.imagesArray;
     this.doRequest(this.newDrinkToSave);
 

@@ -1,3 +1,4 @@
+import { ApprovalWorkFlowComponent } from './components/workflow/approval-work-flow/approval-work-flow.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailDrinkComponent } from './components/detail-drink/detail-drink.component';
+import { ListNotApprovelComponent } from './components/workflow/list-not-approvel/list-not-approvel.component';
+import { StatusServicesComponent } from './components/workflow/status-services/status-services.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { DetailDrinkComponent } from './components/detail-drink/detail-drink.com
     AllDrinksHomePageComponent,
     DeleteDrinkComponent,
     SaveDrinkComponent,
-    DetailDrinkComponent
+    DetailDrinkComponent,
+    ListNotApprovelComponent,
+    StatusServicesComponent,
+    ApprovalWorkFlowComponent
   ],
   imports: [
     BrowserModule,

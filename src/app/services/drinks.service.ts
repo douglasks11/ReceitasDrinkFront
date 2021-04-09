@@ -50,7 +50,7 @@ export class DrinksService {
       })
     };
 
-    return this.httpClient.get<any>(environment.drinkApiUrl, httpOptions).pipe(
+    return this.httpClient.get<any>(environment.drinkApiUrl + "?approved=true", httpOptions).pipe(
       map((response: any) => {
         return response.content;
       }),
@@ -83,6 +83,35 @@ export class DrinksService {
     };
     console.log(environment.drinkApiUrl +"/"+ id);
     return this.httpClient.get<any>(environment.drinkApiUrl + "/" + id, httpOptions).pipe(
+      map((response: any) => {
+        return response;
+      }),
+      catchError(ErrorHandler.handlerError)
+    )
+  }
+
+  getAllNotApproved() {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content_Type': 'application/json'
+      })
+    };
+
+    return this.httpClient.get<any>(environment.drinkApiUrl + "?approved=false", httpOptions).pipe(
+      map((response: any) => {
+        return response.content;
+      }),
+      catchError(ErrorHandler.handlerError)
+    )
+  }
+  approvalDrink(id: any) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content_Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
+    return this.httpClient.post<any>(environment.drinkApiUrl + "/approve/" + id, httpOptions).pipe(
       map((response: any) => {
         return response;
       }),
