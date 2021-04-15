@@ -1,3 +1,4 @@
+import { ApprovalWorkFlowComponent } from './components/workflow/approval-work-flow/approval-work-flow.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,6 +13,11 @@ import { CommonModule } from '@angular/common';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailDrinkComponent } from './components/detail-drink/detail-drink.component';
+import { ListNotApprovelComponent } from './components/workflow/list-not-approvel/list-not-approvel.component';
+import { StatusServicesComponent } from './components/workflow/status-services/status-services.component';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { TelaLoginComponent } from './components/tela-login/tela-login.component';
+import { TelaCadastroComponent } from './components/tela-cadastro/tela-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,12 @@ import { DetailDrinkComponent } from './components/detail-drink/detail-drink.com
     AllDrinksHomePageComponent,
     DeleteDrinkComponent,
     SaveDrinkComponent,
-    DetailDrinkComponent
+    DetailDrinkComponent,
+    ListNotApprovelComponent,
+    StatusServicesComponent,
+    ApprovalWorkFlowComponent,
+    TelaLoginComponent,
+    TelaCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +41,8 @@ import { DetailDrinkComponent } from './components/detail-drink/detail-drink.com
     CommonModule,
     BrowserModule,
     SimpleNotificationsModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2ImgMaxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

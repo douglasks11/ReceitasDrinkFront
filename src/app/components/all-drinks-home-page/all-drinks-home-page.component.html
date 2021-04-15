@@ -1,4 +1,8 @@
-<div class="row text-center">
+<div class="container bg-light ">
+  <div class="nav rounded p-2 mt-3 justify-content-center bg-light border-bottom border-info bg-secondary" >
+    <h2 class="text-info">DRINKS MAIS RECENTES</h2>
+  </div>
+<div class="row text-center p-2 mt-3 d-flex justify-content-around">
   <div *ngFor="let getAllDrink of dataSource | async" class="card col col-xs-1 col-md-2 col-lg-3">
     <div *ngFor="let rowImage of getAllDrink.imagens">
       <img src={{rowImage.data}} class="figure-img img-fluid rounded" alt="...">
@@ -17,3 +21,4 @@
       </div>
     </div>
   </div>
+</div>
