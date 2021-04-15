@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailDrinkComponent } from './components/detail-drink/detail-drink.component';
 import { ListNotApprovelComponent } from './components/workflow/list-not-approvel/list-not-approvel.component';
 import { StatusServicesComponent } from './components/workflow/status-services/status-services.component';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { TelaLoginComponent } from './components/tela-login/tela-login.component';
+import { TelaCadastroComponent } from './components/tela-cadastro/tela-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { StatusServicesComponent } from './components/workflow/status-services/s
     DetailDrinkComponent,
     ListNotApprovelComponent,
     StatusServicesComponent,
-    ApprovalWorkFlowComponent
+    ApprovalWorkFlowComponent,
+    TelaLoginComponent,
+    TelaCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { StatusServicesComponent } from './components/workflow/status-services/s
     CommonModule,
     BrowserModule,
     SimpleNotificationsModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2ImgMaxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

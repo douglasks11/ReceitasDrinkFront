@@ -30,10 +30,11 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/jquery/dist/jquery.min.js",
-              "src/assets/css/defaul.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"
+            ]
           },
           "configurations": {
             "production": {

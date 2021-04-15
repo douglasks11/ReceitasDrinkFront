@@ -4,20 +4,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { NotificationsService } from 'angular2-notifications';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 @Component({
   selector: 'app-save-drink',
   templateUrl: './save-drink.component.html',
   styleUrls: ['./save-drink.component.css']
 })
+
 export class SaveDrinkComponent implements OnInit {
 
   constructor(private drinksService: DrinksService, private formBuilder: FormBuilder, private servNotification: NotificationsService,
-    private _sanitizer: DomSanitizer) { }
+    private _sanitizer: DomSanitizer, private ng2ImgMax: Ng2ImgMaxService) { }
   SaveNewDrinkForm!: FormGroup;
   SaveNewIngredienteForm!: FormGroup;
   ImagensForm!: FormGroup;
-  fileSelected?: Blob;
+  fileSelected!: Blob;
   imageUrl?: string = "assets/imgs/Drink.png";
   data: string = "Base64";
 
@@ -37,7 +39,7 @@ export class SaveDrinkComponent implements OnInit {
     }, { updateOn: 'submit' })
 
     this.ImagensForm = this.formBuilder.group({
-      data:[this.data, Validators.required]
+      data: [this.data, Validators.required]
     })
   }
   prodt: any[] = [];
@@ -100,9 +102,13 @@ export class SaveDrinkComponent implements OnInit {
   }
 
   onSelectNewFile(e: any): void {
-    this.fileSelected = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
-    this.imageUrl = this._sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.fileSelected)) as string;
+   let image = e.target.files[0];
+    this.ng2ImgMax.resizeImage(image, 400, 300).subscribe(
+      result => {
+        this.fileSelected = this._sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(result)) as Blob;
+      })
 
+      console.log("imagem resized" + this.fileSelected );
     this.convertFileToBase64();
   }
 
