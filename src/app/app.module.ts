@@ -18,6 +18,7 @@ import { StatusServicesComponent } from './components/workflow/status-services/s
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { TelaLoginComponent } from './components/tela-login/tela-login.component';
 import { TelaCadastroComponent } from './components/tela-cadastro/tela-cadastro.component';
+import { UpdateDrinkComponent } from './components/update-drink/update-drink.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TelaCadastroComponent } from './components/tela-cadastro/tela-cadastro.
     StatusServicesComponent,
     ApprovalWorkFlowComponent,
     TelaLoginComponent,
-    TelaCadastroComponent
+    TelaCadastroComponent,
+    UpdateDrinkComponent
   ],
   imports: [
     BrowserModule,

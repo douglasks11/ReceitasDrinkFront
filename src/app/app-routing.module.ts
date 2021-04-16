@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllDrinksHomePageComponent } from './components/all-drinks-home-page/all-drinks-home-page.component';
 import { TelaCadastroComponent } from './components/tela-cadastro/tela-cadastro.component';
+import { UpdateDrinkComponent } from './components/update-drink/update-drink.component';
 
 const routes: Routes = [
 { path: '', redirectTo: 'drinks', pathMatch: 'full'},
@@ -16,7 +17,9 @@ const routes: Routes = [
 { path: 'detailDrink/:id', component: DetailDrinkComponent},
 { path: 'workflow', component: ApprovalWorkFlowComponent},
 { path: 'login', component: TelaLoginComponent},
-{ path: 'cadastro', component: TelaCadastroComponent}
+{ path: 'cadastro', component: TelaCadastroComponent},
+{ path: 'updatedrink', component: UpdateDrinkComponent}
+
 ];
 
 
