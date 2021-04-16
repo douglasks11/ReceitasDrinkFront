@@ -1,13 +1,15 @@
+
 <simple-notifications></simple-notifications>
+<div class="container">
 <div class="row">
   <h1>Cadastrar um novo Drink</h1>
   <form [formGroup]="SaveNewDrinkForm" class="row g-3" (ngSubmit)="OnSubmitDrink()" #localForm="ngForm">
     <div class="col-md-12">
-      <label for="nome" class="form-label">Nome do Drink</label>
-      <input type="text" class="form-control" formControlName="nome" id="nome"
+      <!-- <label for="nome" class="form-label">Nome do Drink</label> -->
+      <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome do Drink"
         [class.is-invalid]="localForm.submitted && SaveNewDrinkForm.get('nome')?.invalid" required>
       <div class="invalid-feedback">
-        Necessario preencher nome do Drink
+        Necessário preencher nome do Drink
       </div>
     </div>
     <br><br><br><br>
@@ -15,9 +17,8 @@
       <h3>Lista de Ingredientes</h3>
       <div class="row">
         <form [formGroup]="SaveNewIngredienteForm" (ngSubmit)="onSubmitIngredientes()" #formIngrediente="ngForm">
-          <label>Adicionar itens</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" formControlName="ingrediente" id="ingrediente"
+            <input type="text" class="form-control" formControlName="ingrediente" id="ingrediente" placeholder="Adicionar item"
               aria-describedby="button-addon2"
               [class.is-invalid]="formIngrediente.submitted && SaveNewIngredienteForm.get('ingrediente')?.invalid"
               required>
@@ -32,8 +33,8 @@
               <option value="DOSE">DOSE</option>
               <option value="LITROS">LITROS</option>
             </select>
-            <button class="btn btn-outline-danger" type="button">Remover Item</button>
-            <button class="btn btn-outline-success" type="submit" id="button-addon2">Adicione outro</button>
+            <button class="btn btn-primary" type="button">Remover Item</button>
+            <button class="btn btn-primary" type="submit" id="button-addon2">Adicione outro</button>
           </div>
 
           <div class="row">
@@ -65,7 +66,7 @@
         <textarea class="form-control" formControlName="modoPreparo" aria-label="With textarea" required
           [class.is-invalid]="localForm.submitted && SaveNewDrinkForm.get('modoPreparo')?.invalid"></textarea>
         <div class="invalid-feedback">
-          Necessario preencher forma de preparo
+          Necessário preencher modo de preparo
         </div>
       </div>
       <br><br><br><br><br><br><br><br>
@@ -75,18 +76,19 @@
           <div class="input-group mb-3">
             <img [src]="imageUrl" class="rounded float-start" alt="Image Review"
               style="max-width:300px;max-height:300px">
-            <input type="file" accept="image/*" (change)="onSelectNewFile($event)" class="form-control" id="files">
-            <label class="input-group-text" for="files">Carregar</label>
+            <input  type="file" accept="image/*" (change)="onSelectNewFile($event)" class="form-control" id="files" >
+            <!-- <label class="input-group-text" for="files">Carregar</label> -->
           </div>
         </div>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-outline-success">Cadastrar Drink</button>
+        <button type="submit" class="btn btn-primary">Cadastrar Drink</button>
       </div>
     </div>
 
   </form>
 </div>
+</div>
+<br>
 
-<br>
-<br>
+<footer align="center"><small>&copy;RECEITAS🍸DRINKS 2021</small></footer>
