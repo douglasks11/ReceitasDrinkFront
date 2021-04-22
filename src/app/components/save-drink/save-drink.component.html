@@ -1,0 +1,92 @@
+<simple-notifications></simple-notifications>
+<div class="row">
+  <h1>Cadastrar um novo Drink</h1>
+  <form [formGroup]="SaveNewDrinkForm" class="row g-3" (ngSubmit)="OnSubmitDrink()" #localForm="ngForm">
+    <div class="col-md-12">
+      <label for="nome" class="form-label">Nome do Drink</label>
+      <input type="text" class="form-control" formControlName="nome" id="nome"
+        [class.is-invalid]="localForm.submitted && SaveNewDrinkForm.get('nome')?.invalid" required>
+      <div class="invalid-feedback">
+        Necessario preencher nome do Drink
+      </div>
+    </div>
+    <br><br><br><br>
+    <div class="row">
+      <h3>Lista de Ingredientes</h3>
+      <div class="row">
+        <form [formGroup]="SaveNewIngredienteForm" (ngSubmit)="onSubmitIngredientes()" #formIngrediente="ngForm">
+          <label>Adicionar itens</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="ingrediente" id="ingrediente"
+              aria-describedby="button-addon2"
+              [class.is-invalid]="formIngrediente.submitted && SaveNewIngredienteForm.get('ingrediente')?.invalid"
+              required>
+            <input type="number" class="form-control" formControlName="quantidade" id="quantidade"
+              placeholder="Quantidade"
+              [class.is-invalid]="formIngrediente.submitted && SaveNewIngredienteForm.get('quantidade')?.invalid"
+              required>
+            <select class="form-select" formControlName="dosagem" id="dosagem">
+              <option selected>Tipo Dosagem</option>
+              <option value="ML">ML</option>
+              <option value="UNIDADE">UNIDADE</option>
+              <option value="DOSE">DOSE</option>
+              <option value="LITROS">LITROS</option>
+            </select>
+            <button class="btn btn-outline-danger" type="button">Remover Item</button>
+            <button class="btn btn-outline-success" type="submit" id="button-addon2">Adicione outro</button>
+          </div>
+
+          <div class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Ingrediente</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col">Dosagem</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let data of dataSource | async">
+                <tr class="table-light">
+                  <th scope="row"> {{ data.ingrediente }} </th>
+                  <td>{{ data.quantidade }}</td>
+                  <td>{{ data.dosagem }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br>
+    <div class="row">
+      <h3>Modo de Preparo</h3>
+      <div class="input-group">
+        <span class="input-group-text">Como faz</span>
+        <textarea class="form-control" formControlName="modoPreparo" aria-label="With textarea" required
+          [class.is-invalid]="localForm.submitted && SaveNewDrinkForm.get('modoPreparo')?.invalid"></textarea>
+        <div class="invalid-feedback">
+          Necessario preencher forma de preparo
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br>
+      <div class="row">
+        <h3>Selecione fotos do Drink</h3>
+        <div class="col-md-12">
+          <div class="input-group mb-3">
+            <img [src]="imageUrl" class="rounded float-start" alt="Image Review"
+              style="max-width:300px;max-height:300px">
+            <input type="file" accept="image/*" (change)="onSelectNewFile($event)" class="form-control" id="files">
+            <label class="input-group-text" for="files">Carregar</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-outline-success">Cadastrar Drink</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<br>
+<br>

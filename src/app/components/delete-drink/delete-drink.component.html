@@ -1,0 +1,18 @@
+<div *ngIf="messageSucess.code == 200" class="alert alert-success" role="alert" >
+  <a class="alert-link">Retorno: {{ (messageSucess.code) }}</a>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <form [formGroup]="checkoutForm">
+    <div class="input-group">
+      <input  id="id" type="text" class="form-control" formControlName="id" placeholder="Digite um ID">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit" (click)="deleteDrinkById('id')">DELETAR</button>
+      </span>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <app-all-drinks-home-page></app-all-drinks-home-page>
+</div>

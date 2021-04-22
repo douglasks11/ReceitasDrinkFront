@@ -1,0 +1,40 @@
+<div class="container bg-light p-2 mt-3">
+  <div class="row " *ngFor="let detailDrink of dataSource | async">
+    <div class="col-sm-4" *ngFor="let rowImage of detailDrink.imagens">
+      <img src={{rowImage.data}} class="figure-img img-fluid rounded" alt="...">
+    </div>
+    <div class="col-sm-8">
+      <h1>{{detailDrink.nome}}</h1>
+      <br><br><br>
+      <div class="row">
+        <h3><img src="assets/imgs/utilityImage/LIKES.png" width="100px" height="100px">{{detailDrink.likes}} Pessoas
+          amaram esse drink</h3>
+      </div>
+      <div class="row">
+        <h6><img src="assets/imgs/utilityImage/BARMAN.png" width="100px" height="100px"> por Douglas Oliveira dia:
+          {{detailDrink.dataCriacao}}</h6>
+      </div>
+    </div>
+    <!-- MODO DE PREPARO -->
+    <div class="row">
+      <div class="container">
+        <div class="nav rounded p-2 mt-3 justify-content-center bg-light border-bottom border-info bg-secondary">
+          <h2 class="text-info">INGREDIENTES</h2>
+        </div>
+        <br><br>
+        <ul *ngFor="let ingredientes of detailDrink.ingredientes">
+          <li>{{ingredientes.quantidade}} {{ingredientes.dosagem}} de {{ ingredientes.ingrediente}}</li>
+        </ul>
+        <br><br>
+        <div class="row">
+          <div class="nav nav rounded p-2 mt-3 justify-content-center bg-light border-bottom border-info bg-secondary">
+            <h2 class="text-info">Modo de preparo</h2>
+          </div>
+          <br><br>
+          <ul>
+            <li>{{detailDrink.modoPreparo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
