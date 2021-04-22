@@ -102,13 +102,9 @@ export class SaveDrinkComponent implements OnInit {
   }
 
   onSelectNewFile(e: any): void {
-   let image = e.target.files[0];
-    this.ng2ImgMax.resizeImage(image, 400, 300).subscribe(
-      result => {
-        this.fileSelected = this._sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(result)) as Blob;
-      })
+    this.fileSelected = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    this.imageUrl = this._sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.fileSelected)) as string;
 
-      console.log("imagem resized" + this.fileSelected );
     this.convertFileToBase64();
   }
 

@@ -44,3 +44,15 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#
+.classpath
+.ideia
+.project
+.setting/
+*.iml
+app/target
+service-discovery/.idea/
+service-discovery/service-discovery.iml
+service-discovery/target/
+target/
